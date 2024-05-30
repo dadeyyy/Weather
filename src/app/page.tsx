@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import RainfallIntensity from '@/components/rainfall/intensity';
-import RainfallGrams from '@/components/rainfall/grams';
+import RainfallWarning from '@/components/rainfall/warning';
 import Rainfallmm from '@/components/rainfall/rainfallmm';
 
 export default function Home() {
@@ -101,7 +101,7 @@ export default function Home() {
         <div className=" w:full sm:w-3/5 flex flex-col gap-5">
           <Rainfallmm />
           <RainfallIntensity />
-          {/* <RainfallGrams/> */}
+          <RainfallWarning/>
         </div>
       </main>
     </div>

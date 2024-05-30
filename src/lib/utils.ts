@@ -51,3 +51,27 @@ export const multiFormatDateString = (timestamp: string = ""): string => {
       return "Just now";
   }
 };
+
+export const checkIntensity = (value: string) => {
+  const totalRainfall = parseFloat(value);
+
+  if (totalRainfall === 0) {
+    return { rainfallWarning: 'No Rain', color: 'bg-slate-500' };
+  } else if (totalRainfall > 0 && totalRainfall <= 2.5) {
+    return { rainfallWarning: 'Light Rain', color: 'bg-sky-300' };
+  } else if (totalRainfall > 2.5 && totalRainfall <= 7.5) {
+    return { rainfallWarning: 'Moderate Rain', color: 'bg-purple-300' };
+  } else if (totalRainfall > 7.5 && totalRainfall <= 15) {
+    return {
+      rainfallWarning: 'Yellow Rainfall Warning',
+      color: 'bg-yellow-400',
+    };
+  } else if (totalRainfall > 15 && totalRainfall <= 30) {
+    return {
+      rainfallWarning: 'Orange Rainfall Warning',
+      color: 'bg-orange-400',
+    };
+  } else if (totalRainfall > 30) {
+    return { rainfallWarning: 'Red Rainfall Warning', color: 'bg-red-400' };
+  }
+};
