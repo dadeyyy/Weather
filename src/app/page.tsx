@@ -15,8 +15,8 @@ export default function Home() {
       <main className="container mx-auto backdrop-blur-md bg-slate-800 rounded-2xl opacity-80 h-full sm:h-4/5 text-white  flex flex-col sm:flex-row p-9 gap-10">
         <div className="flex flex-col w-full sm:w-2/5">
           <div className="flex flex-col sm:flex-row gap-4  w-full">
-          <button className="bg-slate-500 w-full py-3 rounded-xl text-sm sm:text-base">
-             Soil moisture analyzer
+            <button className="bg-slate-500 w-full py-3 rounded-xl text-sm sm:text-base">
+              Soil moisture analyzer
             </button>
             {/* <button className="bg-slate-500 w-full py-3 rounded-xl text-sm sm:text-base">
               History
@@ -99,12 +99,9 @@ export default function Home() {
         </div>
 
         <div className=" w:full sm:w-3/5 flex flex-col gap-5">
-          <RainfallIntensity/>
-
-          <RainfallGrams/>
-
-          <Rainfallmm/>
-
+          <Rainfallmm />
+          <RainfallIntensity />
+          {/* <RainfallGrams/> */}
         </div>
       </main>
     </div>
