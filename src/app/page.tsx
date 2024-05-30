@@ -15,12 +15,15 @@ export default function Home() {
       <main className="container mx-auto backdrop-blur-md bg-slate-800 rounded-2xl opacity-80 h-full sm:h-4/5 text-white  flex flex-col sm:flex-row p-9 gap-10">
         <div className="flex flex-col w-full sm:w-2/5">
           <div className="flex flex-col sm:flex-row gap-4  w-full">
-            <button className="bg-slate-500 w-full py-3 rounded-xl text-sm sm:text-base">
+          <button className="bg-slate-500 w-full py-3 rounded-xl text-sm sm:text-base">
+             Soil moisture analyzer
+            </button>
+            {/* <button className="bg-slate-500 w-full py-3 rounded-xl text-sm sm:text-base">
               History
             </button>
             <button className="bg-slate-500 w-full py-3 rounded-xl text-sm sm:text-base">
               Recommendation
-            </button>
+            </button> */}
           </div>
           <div className="flex flex-col items-center h-full p-8  bg-slate-900 rounded-xl mt-2">
             <div className="h-1/2 flex flex-col justify-center items-center gap-2 mb-5">
