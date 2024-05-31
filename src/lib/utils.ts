@@ -101,6 +101,20 @@ export const checkIntensityText = (value: string) => {
   }
 };
 
+export const checkMoistureContent = (value:string) =>{
+  const moistureContent = parseInt(value);
+
+  if(moistureContent >= 0 && moistureContent <=39){
+    return {advice: 'Water the crop'}
+  }
+  else if(moistureContent >= 40 && moistureContent <=60){
+    return {advice: 'Crop water is enough'}
+  }
+  else if(moistureContent >=61 && moistureContent <=100) {
+    return {advice: 'Crop water is too much'}
+  }
+}
+
 
 
 export function formatDate(date: Date) {
