@@ -69,3 +69,11 @@ export type WeighingRainGaugeMM = {
   channel: Channel2;
   feeds: Feed2[];
 };
+
+export type RecentDataType= {
+  created_at: string;
+  entry_id: number;
+  field1: string | null;
+  field2: string | null;
+  field3: string 
+}
