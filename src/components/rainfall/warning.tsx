@@ -1,7 +1,7 @@
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import Image from 'next/image';
-import { formatDate, multiFormatDateString } from '@/lib/utils';
-import { WeighingRainGauge } from '@/lib/types';
+import { formatDateRecent } from '@/lib/utils';
+import { Feed, WeighingRainGaugeData } from '@/lib/types';
 import { checkIntensity } from '@/lib/utils';
 
 const feeds = [
@@ -68,31 +68,11 @@ const feeds = [
   { created_at: '2024-05-29T15:28:08Z', entry_id: 12, field3: null },
 ];
 
-async function getRainfallWarning() {
-  const res = await fetch(
-    'https://api.thingspeak.com/channels/2531448/fields/3.json?api_key=UFR2I5V9Z9KMQ10X&results'
-  );
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch new data');
-  }
-  const data = await res.json() as WeighingRainGauge;
-
-  const sortedFeeds = data.feeds.sort((a, b) => {
-    const dateA = new Date(a.created_at).getTime();
-    const dateB = new Date(b.created_at).getTime();
-    return dateB - dateA;
-  });
-  
-  return sortedFeeds;
-}
-
-
-
-
-const RainfallWarning = async () => {
-  const data = (await getRainfallWarning()) 
-
+const RainfallWarning = async ({
+  rainfallWarningData,
+}: {
+  rainfallWarningData: Feed[];
+}) => {
   return (
     <div className="flex flex-col bg-gray-950 rounded-xl">
       <div className="p-4 flex flex-col gap-2">
@@ -101,8 +81,8 @@ const RainfallWarning = async () => {
       </div>
 
       <ScrollArea className="whitespace-nowrap w-full">
-        <div className="flex w-max space-x-4 py-2 px-4 text-sm">
-          {data.map((data) => {
+        <div className="flex space-x-4 py-2 px-4 text-sm w-full">
+          {rainfallWarningData.map((data) => {
             const warning = checkIntensity(data.field3 || '');
 
             return (
@@ -110,10 +90,19 @@ const RainfallWarning = async () => {
                 key={data.entry_id}
                 className={`${
                   warning?.color ?? 'bg-slate-400'
-                } flex flex-col justify-center items-center  py-2 px-6 rounded-2xl gap-2`}
+                } flex flex-col justify-center items-center  py-2 px-6 rounded-2xl gap-2 `}
               >
-                <span className='text-slate-800 font-medium'>{formatDate(new Date(data.created_at))}</span>
-                <span className="text-2xl text-black">{warning?.rainfallWarning}</span>
+                <div className="flex flex-col justify-center items-center">
+                  <span>
+                    {formatDateRecent(new Date(data.created_at)).date}
+                  </span>
+                  <span className="opacity-80">
+                    {formatDateRecent(new Date(data.created_at)).time}
+                  </span>
+                </div>
+                <span className="text-2xl text-black ">
+                  {warning?.rainfallWarning}
+                </span>
                 <Image
                   src={`${
                     warning?.rainfallWarning === 'No Rain'

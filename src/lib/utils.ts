@@ -81,23 +81,25 @@ export const checkIntensityText = (value: string) => {
   const totalRainfall = parseFloat(value);
 
   if (totalRainfall === 0) {
-    return { rainfallWarning: 'No Rain', color: 'text-slate-500' };
+    return { rainfallWarning: 'No Rain', color: 'text-slate-500', forecast: '/forecast/no_rain.png' };
   } else if (totalRainfall > 0 && totalRainfall <= 2.5) {
-    return { rainfallWarning: 'Light Rain', color: 'text-sky-300' };
+    return { rainfallWarning: 'Light Rain', color: 'text-sky-300', forecast: '/forecast/light_rain.png' };
   } else if (totalRainfall > 2.5 && totalRainfall <= 7.5) {
-    return { rainfallWarning: 'Moderate Rain', color: 'text-purple-300' };
+    return { rainfallWarning: 'Moderate Rain', color: 'text-purple-300', forecast: '/forecast/moderate_rain.png' };
   } else if (totalRainfall > 7.5 && totalRainfall <= 15) {
     return {
       rainfallWarning: 'Yellow Rainfall Warning',
       color: 'text-yellow-400',
+      forecast: '/forecast/yellow_warning_1.png'
     };
   } else if (totalRainfall > 15 && totalRainfall <= 30) {
     return {
       rainfallWarning: 'Orange Rainfall Warning',
       color: 'text-orange-400',
+      forecast: '/forecast/orange_warning.png'
     };
   } else if (totalRainfall > 30) {
-    return { rainfallWarning: 'Red Rainfall Warning', color: 'text-red-400' };
+    return { rainfallWarning: 'Red Rainfall Warning', color: 'text-red-400', forecast: '/forecast/red_warning.png' };
   }
 };
 
@@ -142,4 +144,14 @@ export function formatDateRecent(date: Date) {
 
   return {time: `${time}`, date: `${month} ${day}, ${year}` }
   // return ` ${time} ${month} ${day}, ${year} `;
+}
+
+
+export function checkZero (value: string){
+  const num = parseFloat(value)
+
+  if(num === 0){
+    return true
+  }
+  return false
 }

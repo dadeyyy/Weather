@@ -16,6 +16,8 @@ async function getRecentData() {
   return res.json();
 }
 
+
+
 const RecentData = async () => {
   const data = (await getRecentData()) as RecentDataType;
 
@@ -25,23 +27,28 @@ const RecentData = async () => {
     <div className="flex flex-col w-full">
       <div className="flex flex-col sm:flex-row gap-4 w-full">
         <SoilMoistureBtn />
+        
       </div>
-      <div className="flex flex-col items-center h-full p-8  bg-slate-900 rounded-xl mt-2">
-        <div className=" flex justify-center items-center gap-5 mb-5 p-10">
-          <div className='flex flex-col justify-center items-start'>
+      <div className="flex flex-col p-10 h-full  bg-slate-900 rounded-xl mt-2">
+        <div className="flex sm:flex-row flex-col gap-8 justify-between  mb-5 ">
+          <div className="flex flex-col justify-center items-center gap-5">
             <p className="sm:text-7xl font-semibold text-5xl">
               {formattedDateRecent.time}
             </p>
-            <p className="sm:text-3xl text-2xl">{formattedDateRecent.date}</p>
+            <p className="sm:text-3xl text-2xl font-semibold opacity-80">
+              {formattedDateRecent.date}
+            </p>
           </div>
-
-          <p className={`text-4xl sm:text-6xl text-center ${warning?.color}`}>
-            {warning?.rainfallWarning}
-          </p>
+          <div className='flex flex-col justify-center items-center gap-5 pr-2'>
+            <p className={`text-3xl sm:text-4xl max-w-sm text-center ${warning?.color}`}>
+              {warning?.rainfallWarning}
+            </p>
+            <Image src={warning?.forecast || ''} alt='' height={175} width={175}/>
+          </div>
         </div>
         <div className=" flex flex-col justify-center w-full  h-1/2 gap-6">
           <div className="flex flex-col sm:flex-row gap-6">
-            <div className="w-full flex flex-col justify-center   rounded-lg p-2 bg-sky-400/90 gap-2">
+            <div className="w-full flex flex-col justify-center   rounded-lg p-5 bg-sky-400/90 gap-2">
               <div className="flex opacity-50 gap-1">
                 <Image
                   src={`thermometer.svg`}
@@ -60,7 +67,7 @@ const RecentData = async () => {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-6">
-            <div className="w-full flex flex-col justify-center   rounded-lg p-2 bg-sky-400/90 gap-2">
+            <div className="w-full flex flex-col justify-center   rounded-lg p-5 bg-sky-400/90 gap-2">
               <div className="flex opacity-50 gap-1">
                 <Image
                   src={`droplet.svg`}
