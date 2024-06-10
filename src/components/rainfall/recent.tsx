@@ -1,8 +1,9 @@
-import SoilMoistureBtn from '@/components/rainfall/soil-moisture-btn';
+
 import Image from 'next/image';
 import { RecentDataType } from '@/lib/types';
 
 import { checkIntensityText, formatDate, formatDateRecent } from '@/lib/utils';
+import MoreInfoHome from '../navigation/MoreInfoHome';
 
 async function getRecentData() {
   const res = await fetch(
@@ -25,7 +26,6 @@ const RecentData = async () => {
   const formattedDateRecent = formatDateRecent(new Date(data.created_at));
   return (
     <div className="flex flex-col w-full gap-5">
-      
       <div className="flex flex-col p-10 h-full  bg-slate-900 rounded-xl mt-2">
         <div className="flex sm:flex-row flex-col gap-8 justify-between  mb-5 ">
           <div className="flex flex-col justify-center items-center gap-5">
@@ -87,7 +87,7 @@ const RecentData = async () => {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 w-full">
-        <SoilMoistureBtn />
+        <MoreInfoHome/>
       </div>
     </div>
   );

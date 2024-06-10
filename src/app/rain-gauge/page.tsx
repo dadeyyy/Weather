@@ -1,10 +1,12 @@
 import HistoryBtn from '@/components/history/HistoryBtn';
+import BackHome from '@/components/navigation/Backhome';
 import RainfallIntensity from '@/components/rainfall/intensity';
 import Rainfallmm from '@/components/rainfall/rainfallmm';
 import RainfallWarning from '@/components/rainfall/warning';
 import CircularProgress from '@/components/soil/circular-progress';
 import { WeighingRainGaugeData } from '@/lib/types';
 import { formatDateRecent } from '@/lib/utils';
+import Link from 'next/link';
 
 const getSoilMoisture = async () => {
   const res = await fetch(
@@ -45,14 +47,15 @@ const SoilMoisturizer = async () => {
         type="image/<generated>"
         sizes="<generated>"
       />
-      <main className="container flex flex-col bg-slate-900 rounded-2xl opacity-80 text-white p-9 gap-10">
+      <main className="container flex flex-col bg-slate-900 rounded-none sm:rounded-2xl opacity-80 text-white p-8 gap-6">
         <div className="flex flex-col gap-5">
-          <div className='flex sm:flex-row flex-col gap-5 text-center items-center justify-between'>
+          <div className='flex flex-col gap-5'>
+            <BackHome/>
             <h1 className="sm:text-2xl text-xl font-semibold">
             RainSense Rainfall Data:
             </h1>
 
-            <HistoryBtn historyData={data}/>
+            
           </div>
 
           <hr className="opacity-50" />
@@ -61,6 +64,7 @@ const SoilMoisturizer = async () => {
         <Rainfallmm rainfallMmData={data} />
         <RainfallIntensity rainfallIntensityData={data} />
         <RainfallWarning rainfallWarningData={data} />
+        <HistoryBtn historyData={data}/>
       </main>
     </div>
   );

@@ -25,12 +25,13 @@ import { checkIntensity } from '@/lib/utils';
 
 const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
   return (
-    
+    <div>
+
     <Dialog>
       <DialogTrigger asChild>
-        <button className=" hover:bg-sky-500 bg-sky-500 sm:bg-slate-500 p-6 rounded-xl cursor-pointer text-center sm:w-auto w-full">
+        <button className=" hover:bg-sky-500 bg-sky-500 sm:bg-slate-500 px-6 sm:px-8 py-4 rounded-xl cursor-pointer text-center mx-auto flex justify-center items-center">
           <div className="flex flex-col justify-center items-center gap-2 ">
-            <span className=" text-center ">History</span>
+            <span className=" text-center ">More information</span>
           </div>
         </button>
       </DialogTrigger>
@@ -78,6 +79,7 @@ const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
         </ScrollArea>
       </DialogContent>
     </Dialog>
+    </div>
     
   );
 };
