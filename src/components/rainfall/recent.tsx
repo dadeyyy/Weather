@@ -24,11 +24,8 @@ const RecentData = async () => {
   const warning = checkIntensityText(data.field3);
   const formattedDateRecent = formatDateRecent(new Date(data.created_at));
   return (
-    <div className="flex flex-col w-full">
-      <div className="flex flex-col sm:flex-row gap-4 w-full">
-        <SoilMoistureBtn />
-        
-      </div>
+    <div className="flex flex-col w-full gap-5">
+      
       <div className="flex flex-col p-10 h-full  bg-slate-900 rounded-xl mt-2">
         <div className="flex sm:flex-row flex-col gap-8 justify-between  mb-5 ">
           <div className="flex flex-col justify-center items-center gap-5">
@@ -47,9 +44,9 @@ const RecentData = async () => {
           </div>
         </div>
         <div className=" flex flex-col justify-center w-full  h-1/2 gap-6">
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-5">
             <div className="w-full flex flex-col justify-center   rounded-lg p-5 bg-sky-400/90 gap-2">
-              <div className="flex opacity-50 gap-1">
+              <div className="flex opacity-70 gap-1">
                 <Image
                   src={`thermometer.svg`}
                   width={25}
@@ -57,7 +54,7 @@ const RecentData = async () => {
                   alt="Thermometer"
                 />
 
-                <h1 className="text-black  font-extrabold">RAINFALL IN MM</h1>
+                <h1 className="text-black  font-extrabold">15-MINUTE RAINFALL (mm)</h1>
               </div>
               <span className="text-4xl">{data.field2}</span>
               <span className="opacity-70 flex gap-5">
@@ -68,7 +65,7 @@ const RecentData = async () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-6">
             <div className="w-full flex flex-col justify-center   rounded-lg p-5 bg-sky-400/90 gap-2">
-              <div className="flex opacity-50 gap-1">
+              <div className="flex opacity-70 gap-1">
                 <Image
                   src={`droplet.svg`}
                   width={25}
@@ -77,7 +74,7 @@ const RecentData = async () => {
                 />
 
                 <h1 className="text-black  font-extrabold">
-                  RAINFALL INTENSITY
+                  RAINFALL INTENSITY (mm/hr)
                 </h1>
               </div>
               <span className="text-4xl">{data.field3}</span>
@@ -88,6 +85,9 @@ const RecentData = async () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex flex-col sm:flex-row gap-4 w-full">
+        <SoilMoistureBtn />
       </div>
     </div>
   );

@@ -48,8 +48,8 @@ const SoilMoisturizer = async () => {
       <main className="container flex flex-col bg-slate-900 rounded-2xl opacity-80 text-white p-9 gap-10">
         <div className="flex flex-col gap-5">
           <div className='flex sm:flex-row flex-col gap-5 text-center items-center justify-between'>
-            <h1 className="text-2xl font-semibold">
-              Weighing Rain Gauge Data:
+            <h1 className="sm:text-2xl text-xl font-semibold">
+            RainSense Rainfall Data:
             </h1>
 
             <HistoryBtn historyData={data}/>

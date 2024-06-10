@@ -35,7 +35,7 @@ const RainfallIntensity = async ({
   return (
     <div className="flex flex-col bg-gray-950 rounded-xl">
       <div className="p-4 flex flex-col gap-2">
-        <h1 className=" opacity-70 font-extrabold">RAINFALL INTENSITY</h1>
+        <h1 className=" opacity-70 font-extrabold tracking-wide">RAINFALL INTENSITY (mm/hr)</h1>
         <hr className="opacity-40" />
       </div>
 

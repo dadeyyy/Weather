@@ -4,69 +4,69 @@ import { formatDateRecent } from '@/lib/utils';
 import { Feed, WeighingRainGaugeData } from '@/lib/types';
 import { checkIntensity } from '@/lib/utils';
 
-const feeds = [
-  {
-    created_at: '2024-05-29T14:46:39Z',
-    entry_id: 1,
-    field3: '0',
-  },
-  {
-    created_at: '2024-05-29T14:46:39Z',
-    entry_id: 1,
-    field3: '1.50070',
-  },
-  {
-    created_at: '2024-05-29T14:47:09Z',
-    entry_id: 2,
-    field3: '3.60128',
-  },
-  {
-    created_at: '2024-05-29T14:47:38Z',
-    entry_id: 3,
-    field3: '8',
-  },
-  {
-    created_at: '2024-05-29T14:47:54Z',
-    entry_id: 4,
-    field3: '16.00374',
-  },
-  {
-    created_at: '2024-05-29T14:48:25Z',
-    entry_id: 5,
-    field3: '31.00317',
-  },
-  {
-    created_at: '2024-05-29T14:48:52Z',
-    entry_id: 6,
-    field3: '1.00570',
-  },
-  {
-    created_at: '2024-05-29T14:49:09Z',
-    entry_id: 7,
-    field3: '2.6',
-  },
-  {
-    created_at: '2024-05-29T14:49:38Z',
-    entry_id: 8,
-    field3: '0.00849',
-  },
-  {
-    created_at: '2024-05-29T14:50:07Z',
-    entry_id: 9,
-    field3: '0.00444',
-  },
-  {
-    created_at: '2024-05-29T14:50:24Z',
-    entry_id: 10,
-    field3: '0.00302',
-  },
-  {
-    created_at: '2024-05-29T14:50:53Z',
-    entry_id: 11,
-    field3: '0.00255',
-  },
-  { created_at: '2024-05-29T15:28:08Z', entry_id: 12, field3: null },
-];
+// const feeds = [
+//   {
+//     created_at: '2024-05-29T14:46:39Z',
+//     entry_id: 1,
+//     field3: '0',
+//   },
+//   {
+//     created_at: '2024-05-29T14:46:39Z',
+//     entry_id: 1,
+//     field3: '1.50070',
+//   },
+//   {
+//     created_at: '2024-05-29T14:47:09Z',
+//     entry_id: 2,
+//     field3: '3.60128',
+//   },
+//   {
+//     created_at: '2024-05-29T14:47:38Z',
+//     entry_id: 3,
+//     field3: '8',
+//   },
+//   {
+//     created_at: '2024-05-29T14:47:54Z',
+//     entry_id: 4,
+//     field3: '16.00374',
+//   },
+//   {
+//     created_at: '2024-05-29T14:48:25Z',
+//     entry_id: 5,
+//     field3: '31.00317',
+//   },
+//   {
+//     created_at: '2024-05-29T14:48:52Z',
+//     entry_id: 6,
+//     field3: '1.00570',
+//   },
+//   {
+//     created_at: '2024-05-29T14:49:09Z',
+//     entry_id: 7,
+//     field3: '2.6',
+//   },
+//   {
+//     created_at: '2024-05-29T14:49:38Z',
+//     entry_id: 8,
+//     field3: '0.00849',
+//   },
+//   {
+//     created_at: '2024-05-29T14:50:07Z',
+//     entry_id: 9,
+//     field3: '0.00444',
+//   },
+//   {
+//     created_at: '2024-05-29T14:50:24Z',
+//     entry_id: 10,
+//     field3: '0.00302',
+//   },
+//   {
+//     created_at: '2024-05-29T14:50:53Z',
+//     entry_id: 11,
+//     field3: '0.00255',
+//   },
+//   { created_at: '2024-05-29T15:28:08Z', entry_id: 12, field3: null },
+// ];
 
 const RainfallWarning = async ({
   rainfallWarningData,

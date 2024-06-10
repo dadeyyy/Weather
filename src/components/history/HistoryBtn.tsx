@@ -1,5 +1,4 @@
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import Image from 'next/image';
 import { formatDateRecent } from '@/lib/utils';
 import {
   Table,
@@ -23,8 +22,10 @@ import {
 import { Feed } from '@/lib/types';
 import { checkIntensity } from '@/lib/utils';
 
+
 const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
   return (
+    
     <Dialog>
       <DialogTrigger asChild>
         <button className=" hover:bg-sky-500 bg-sky-500 sm:bg-slate-500 p-6 rounded-xl cursor-pointer text-center sm:w-auto w-full">
@@ -41,8 +42,8 @@ const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
             <TableHeader>
               <TableRow>
                 <TableHead>Date Created</TableHead>
-                <TableHead>Rainfall MM</TableHead>
-                <TableHead>Rainfall Intensity</TableHead>
+                <TableHead>15-minute Rainfall (mm)</TableHead>
+                <TableHead>Rainfall Intensity (mm/hr)</TableHead>
                 <TableHead>Rainfall Warning</TableHead>
               </TableRow>
             </TableHeader>
@@ -60,8 +61,8 @@ const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
                         {formatDateRecent(new Date(data.created_at)).time}
                       </span>
                     </TableCell>
-                    <TableCell>{data.field2}</TableCell>
-                    <TableCell>{data.field3}</TableCell>
+                    <TableCell className='text-center '>{data.field2}</TableCell>
+                    <TableCell className='text-center'>{data.field3}</TableCell>
                     <TableCell
                       className={`${
                         warning?.color ?? 'bg-slate-400'
@@ -77,6 +78,7 @@ const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
         </ScrollArea>
       </DialogContent>
     </Dialog>
+    
   );
 };
 
