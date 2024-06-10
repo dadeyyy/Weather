@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import { RecentDataType } from '@/lib/types';
 
@@ -17,77 +16,76 @@ async function getRecentData() {
   return res.json();
 }
 
-
-
 const RecentData = async () => {
   const data = (await getRecentData()) as RecentDataType;
 
   const warning = checkIntensityText(data.field3);
   const formattedDateRecent = formatDateRecent(new Date(data.created_at));
   return (
-    <div className="flex flex-col w-full gap-5">
-      <div className="flex flex-col p-10 h-full  bg-slate-900 rounded-xl mt-2">
-        <div className="flex sm:flex-row flex-col gap-8 justify-between  mb-5 ">
+    <div className="flex flex-col h-full w-full gap-5">
+      <div className="flex flex-col p-10 h-full bg-slate-900 rounded-xl mt-2">
+        <div className="flex sm:flex-row flex-col gap-8 justify-between mb-5 ">
           <div className="flex flex-col justify-center items-center gap-5">
-            <p className="sm:text-7xl font-semibold text-5xl">
+            <p className="text-5xl sm:text-7xl font-semibold">
               {formattedDateRecent.time}
             </p>
-            <p className="sm:text-3xl text-2xl font-semibold opacity-80">
+            <p className="text-2xl sm:text-3xl font-semibold opacity-80">
               {formattedDateRecent.date}
             </p>
           </div>
-          <div className='flex flex-col justify-center items-center gap-5 pr-2'>
-            <p className={`text-3xl sm:text-4xl max-w-sm text-center ${warning?.color}`}>
+          <div className="flex flex-col justify-center items-center gap-5 pr-2">
+            <p
+              className={`text-3xl sm:text-4xl max-w-sm text-center ${warning?.color}`}
+            >
               {warning?.rainfallWarning}
             </p>
-            <Image src={warning?.forecast || ''} alt='' height={175} width={175}/>
+            <Image
+              src={warning?.forecast || ''}
+              alt=""
+              height={175}
+              width={175}
+            />
           </div>
         </div>
-        <div className=" flex flex-col justify-center w-full  h-1/2 gap-6">
-          <div className="flex flex-col sm:flex-row gap-5">
-            <div className="w-full flex flex-col justify-center   rounded-lg p-5 bg-sky-400/90 gap-2">
-              <div className="flex opacity-70 gap-1">
-                <Image
-                  src={`thermometer.svg`}
-                  width={25}
-                  height={25}
-                  alt="Thermometer"
-                />
-
-                <h1 className="text-black  font-extrabold">15-MINUTE RAINFALL (mm)</h1>
-              </div>
-              <span className="text-4xl">{data.field2}</span>
-              <span className="opacity-70 flex gap-5">
-                <p>{formattedDateRecent.date}</p>
-                <p>{formattedDateRecent.time}</p>
-              </span>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col justify-center rounded-lg p-5 bg-sky-400/90 gap-2">
+            <div className="flex opacity-70 gap-1 items-center">
+              <Image
+                src={`thermometer.svg`}
+                width={25}
+                height={25}
+                alt="Thermometer"
+              />
+              <h1 className="text-black font-extrabold">
+                15-MINUTE RAINFALL (mm)
+              </h1>
             </div>
+            <span className="text-4xl">{data.field2}</span>
+            <span className="opacity-70 flex gap-5">
+              <p>{formattedDateRecent.date}</p>
+              <p>{formattedDateRecent.time}</p>
+            </span>
           </div>
-          <div className="flex flex-col sm:flex-row gap-6">
-            <div className="w-full flex flex-col justify-center   rounded-lg p-5 bg-sky-400/90 gap-2">
-              <div className="flex opacity-70 gap-1">
-                <Image
-                  src={`droplet.svg`}
-                  width={25}
-                  height={25}
-                  alt="Thermometer"
-                />
 
-                <h1 className="text-black  font-extrabold">
-                  RAINFALL INTENSITY (mm/hr)
-                </h1>
-              </div>
-              <span className="text-4xl">{data.field3}</span>
-              <span className="opacity-70 flex gap-5">
-                <p>{formattedDateRecent.date}</p>
-                <p>{formattedDateRecent.time}</p>
-              </span>
+          <div className="flex flex-col justify-center rounded-lg p-5 bg-sky-400/90 gap-2">
+            <div className="flex opacity-70 gap-1 items-center">
+              <Image
+                src={`droplet.svg`}
+                width={25}
+                height={25}
+                alt="Thermometer"
+              />
+              <h1 className="text-black font-extrabold">
+                RAINFALL INTENSITY (mm/hr)
+              </h1>
             </div>
+            <span className="text-4xl">{data.field3}</span>
+            <span className="opacity-70 flex gap-5">
+              <p>{formattedDateRecent.date}</p>
+              <p>{formattedDateRecent.time}</p>
+            </span>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col sm:flex-row gap-4 w-full">
-        <MoreInfoHome/>
       </div>
     </div>
   );

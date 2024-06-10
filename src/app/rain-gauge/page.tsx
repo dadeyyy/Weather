@@ -36,7 +36,7 @@ const SoilMoisturizer = async () => {
 
   return (
     <div
-      className="bg-cover bg-center h-100 sm:h-screen flex justify-center items-center"
+      className="bg-cover bg-center  min-h-screen flex justify-center items-center"
       style={{
         backgroundImage: `url(/weather.webp)`,
       }}
