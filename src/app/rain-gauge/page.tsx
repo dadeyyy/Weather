@@ -10,7 +10,9 @@ import Link from 'next/link';
 
 const getSoilMoisture = async () => {
   const res = await fetch(
-    'https://api.thingspeak.com/channels/2531448/feeds.json?api_key=UFR2I5V9Z9KMQ10X&results=10'
+    'https://api.thingspeak.com/channels/2531448/feeds.json?api_key=UFR2I5V9Z9KMQ10X&results=10', {
+      cache: 'no-store'
+    }
   );
 
   if (!res.ok) {

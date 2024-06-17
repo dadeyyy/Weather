@@ -6,7 +6,8 @@ import MoreInfoHome from '../navigation/MoreInfoHome';
 
 async function getRecentData() {
   const res = await fetch(
-    'https://api.thingspeak.com/channels/2531448/feeds/last.json?api_key=UFR2I5V9Z9KMQ10X'
+    'https://api.thingspeak.com/channels/2531448/feeds/last.json?api_key=UFR2I5V9Z9KMQ10X',
+    {cache: 'no-store'}
   );
 
   if (!res.ok) {
