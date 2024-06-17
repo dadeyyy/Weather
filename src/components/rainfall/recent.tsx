@@ -55,7 +55,7 @@ const RecentData = async () => {
       </div>
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 h-full">
         <div className="flex flex-col justify-evenly items-center rounded-lg p-4 sm:p-5 bg-sky-400/90 gap-2 flex-1 overflow-hidden">
-          <div className="flex opacity-70 gap-1 items-center">
+          <div className="flex opacity-70 gap-2 items-center">
             <Image
               src={`thermometer.svg`}
               width={25}
@@ -78,7 +78,7 @@ const RecentData = async () => {
           </div>
         </div>
         <div className="flex flex-col justify-evenly items-center rounded-lg p-4 sm:p-5 bg-sky-400/90 gap-2 flex-1 overflow-hidden">
-          <div className="flex opacity-70 gap-1 items-center">
+          <div className="flex opacity-70 gap-2 items-center">
             <Image
               src={`droplet.svg`}
               width={25}

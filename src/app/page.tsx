@@ -15,7 +15,9 @@ export default function Home() {
         type="image/<generated>"
         sizes="<generated>"
       />
-      <main className="container mx-auto backdrop-blur-md bg-slate-800 rounded-2xl opacity-80 text-white flex flex-col p-5 pt-10 gap-5 justify-center items-center h-screen sm:h-4/5 w-auto sm:max-w-lg md:max-w-xl lg:max-w-4xl ">
+      <main className="container mx-auto backdrop-blur-md bg-slate-800 rounded-2xl opacity-80 text-white flex flex-col p-5 pt-10 gap-5 justify-center items-center h-screen sm:h-4/5
+      
+      w-auto sm:max-w-lg md:max-w-xl lg:max-w-4xl ">
         <RecentData />
         <MoreInfoHome />
         {/* <RefreshBtn/> */}
