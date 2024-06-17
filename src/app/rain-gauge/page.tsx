@@ -45,7 +45,7 @@ const SoilMoisturizer = async () => {
     >
       <link
         rel="icon"
-        href="/wallpaper-cloudy.png"
+        href="/icon-website.png"
         type="image/<generated>"
         sizes="<generated>"
       />

@@ -11,7 +11,7 @@ export default function Home() {
     <div className="bg-cover bg-center h-screen flex justify-center items-center overflow-hidden " style={{ backgroundImage: `url(/weather.webp)` }}>
       <link
         rel="icon"
-        href="/wallpaper-cloudy.png"
+        href="/icon-website.png"
         type="image/<generated>"
         sizes="<generated>"
       />
