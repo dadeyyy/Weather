@@ -15,7 +15,7 @@ export default function Home() {
         type="image/<generated>"
         sizes="<generated>"
       />
-      <main className="container mx-auto backdrop-blur-md bg-slate-800 rounded-2xl opacity-80 text-white flex flex-col p-5 pt-10 gap-5 justify-center items-center h-screen sm:h-9/10
+      <main className="container mx-auto backdrop-blur-md bg-slate-800 rounded-2xl opacity-80 text-white flex flex-col p-5 pt-10 gap-5 justify-center items-center h-screen sm:h-9/10 
       
       w-auto sm:max-w-lg md:max-w-xl lg:max-w-4xl ">
         <RecentData />
