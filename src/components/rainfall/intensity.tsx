@@ -7,6 +7,7 @@ import {
   checkZero,
 } from '@/lib/utils';
 import { Feed, WeighingRainGaugeData } from '@/lib/types';
+import { formatToTwoDecimalPlaces } from '@/lib/utils';
 
 // async function getRainfallIntensity() {
 //   const res = await fetch(
@@ -52,7 +53,7 @@ const RainfallIntensity = async ({
                   {formatDateRecent(new Date(data.created_at)).time}
                 </span>
               </div>
-              <span className="text-2xl">{data.field3}</span>
+              <span className="text-2xl">{formatToTwoDecimalPlaces(data.field3|| '')}</span>
               <Image src={`${
                     checkZero(data.field3 || '') === true
                       ? '/sun.gif'

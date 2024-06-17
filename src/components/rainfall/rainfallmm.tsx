@@ -7,7 +7,7 @@ import {
 } from '@/lib/utils';
 import { Feed, WeighingRainGaugeData } from '@/lib/types';
 import { checkZero } from '@/lib/utils';
-
+import { formatToTwoDecimalPlaces } from '@/lib/utils';
 const Rainfallmm = async ({
   rainfallMmData,
 }: {
@@ -34,7 +34,7 @@ const Rainfallmm = async ({
                 </span>
               </div>
 
-              <span className="text-2xl">{data.field2} </span>
+              <span className="text-2xl">{formatToTwoDecimalPlaces(data.field2 || '')} </span>
               <Image src={`${
                     checkZero(data.field2 || '') === true
                       ? '/sun.gif'

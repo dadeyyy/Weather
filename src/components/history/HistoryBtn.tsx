@@ -21,6 +21,7 @@ import {
 } from '@/components/ui/dialog';
 import { Feed } from '@/lib/types';
 import { checkIntensity } from '@/lib/utils';
+import { formatToTwoDecimalPlaces } from '@/lib/utils';
 
 
 const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
@@ -62,8 +63,8 @@ const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
                         {formatDateRecent(new Date(data.created_at)).time}
                       </span>
                     </TableCell>
-                    <TableCell className='text-center '>{data.field2}</TableCell>
-                    <TableCell className='text-center'>{data.field3}</TableCell>
+                    <TableCell className='text-center '>{formatToTwoDecimalPlaces(data.field2 || '')}</TableCell>
+                    <TableCell className='text-center'>{formatToTwoDecimalPlaces(data.field3 || '')}</TableCell>
                     <TableCell
                       className={`${
                         warning?.color ?? 'bg-slate-400'

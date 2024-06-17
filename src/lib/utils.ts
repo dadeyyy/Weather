@@ -147,6 +147,23 @@ export function formatDateRecent(date: Date): FormattedDate {
   return { time: formattedTime, date: formattedDate };
 }
 
+export function formatToTwoDecimalPlaces(input: string) {
+  // Convert input string to a number
+  const number = parseFloat(input);
+  
+  // Check if the conversion resulted in a valid number
+  if (isNaN(number)) {
+      return '';
+  }
+  
+  // Round to two decimal places and convert back to string
+  const rounded = number.toFixed(2);
+  
+  // Return the formatted number as a string
+  return rounded;
+}
+
+
 export function checkZero (value: string){
   const num = parseFloat(value)
 

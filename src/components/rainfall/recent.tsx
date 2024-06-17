@@ -3,6 +3,7 @@ import { RecentDataType } from '@/lib/types';
 
 import { checkIntensityText, formatDate, formatDateRecent } from '@/lib/utils';
 import MoreInfoHome from '../navigation/MoreInfoHome';
+import { formatToTwoDecimalPlaces } from '@/lib/utils';
 
 async function getRecentData() {
   const res = await fetch(
@@ -19,7 +20,6 @@ async function getRecentData() {
 
 const RecentData = async () => {
   const data = (await getRecentData()) as RecentDataType;
-
   const warning = checkIntensityText(data.field3);
   const formattedDateRecent = formatDateRecent(new Date(data.created_at));
   return (
@@ -69,7 +69,7 @@ const RecentData = async () => {
 
           <div className="flex flex-col justify-center items-center">
             <span className="text-2xl sm:text-3xl lg:text-4xl">
-              {data.field2}
+              {formatToTwoDecimalPlaces(data.field2 || '')}
             </span>
             <span className="opacity-70 flex gap-3 sm:gap-5">
               <p>{formattedDateRecent.date}</p>
@@ -92,7 +92,7 @@ const RecentData = async () => {
 
           <div className="flex flex-col justify-center items-center">
             <span className="text-2xl sm:text-3xl lg:text-4xl">
-              {data.field3}
+              {formatToTwoDecimalPlaces(data.field3)}
             </span>
             <span className="opacity-70 flex gap-3 sm:gap-5">
               <p>{formattedDateRecent.date}</p>
