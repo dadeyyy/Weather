@@ -85,7 +85,7 @@ const RecentData = async () => {
               height={25}
               alt="Thermometer"
             />
-            <h1 className="text-black font-extrabold text-center text-md sm:text-lg lg:text-xl">
+            <h1 className="text-black font-extrabold  text-md sm:text-lg lg:text-xl">
               RAINFALL INTENSITY (mm/hr)
             </h1>
           </div>
