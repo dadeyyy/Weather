@@ -20,7 +20,6 @@ export default function Home() {
       w-auto sm:max-w-lg md:max-w-xl lg:max-w-4xl ">
         <RecentData />
         <MoreInfoHome />
-        {/* <RefreshBtn/> */}
       </main>
     </div>
   );

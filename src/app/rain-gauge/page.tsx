@@ -3,6 +3,7 @@ import BackHome from '@/components/navigation/Backhome';
 import RainfallIntensity from '@/components/rainfall/intensity';
 import Rainfallmm from '@/components/rainfall/rainfallmm';
 import RainfallWarning from '@/components/rainfall/warning';
+import RefreshBtnRainGauge from '@/components/refresh/RefreshBtnRainGauge';
 import CircularProgress from '@/components/soil/circular-progress';
 import { WeighingRainGaugeData } from '@/lib/types';
 import { formatDateRecent } from '@/lib/utils';
@@ -10,8 +11,9 @@ import Link from 'next/link';
 
 const getSoilMoisture = async () => {
   const res = await fetch(
-    'https://api.thingspeak.com/channels/2531448/feeds.json?api_key=UFR2I5V9Z9KMQ10X&results=10', {
-      cache: 'no-store'
+    'https://api.thingspeak.com/channels/2531448/feeds.json?api_key=UFR2I5V9Z9KMQ10X&results=10',
+    {
+      cache: 'no-store',
     }
   );
 
@@ -51,13 +53,15 @@ const SoilMoisturizer = async () => {
       />
       <main className="container flex flex-col bg-slate-900 rounded-none sm:rounded-2xl opacity-80 text-white p-8 gap-6">
         <div className="flex flex-col gap-5">
-          <div className='flex flex-col gap-5'>
-            <BackHome/>
-            <h1 className="sm:text-2xl text-xl font-semibold">
-            RainSense Rainfall Data:
-            </h1>
+          <div className="flex flex-col gap-5">
+            <div className='flex justify-between'>
+              <BackHome />
+              <RefreshBtnRainGauge/>
+            </div>
 
-            
+            <h1 className="sm:text-2xl text-xl font-semibold">
+              RainSense Rainfall Data:
+            </h1>
           </div>
 
           <hr className="opacity-50" />
@@ -66,7 +70,7 @@ const SoilMoisturizer = async () => {
         <Rainfallmm rainfallMmData={data} />
         <RainfallIntensity rainfallIntensityData={data} />
         <RainfallWarning rainfallWarningData={data} />
-        <HistoryBtn historyData={data}/>
+        <HistoryBtn historyData={data} />
       </main>
     </div>
   );
