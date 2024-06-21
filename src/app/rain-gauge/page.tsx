@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const getSoilMoisture = async () => {
   const res = await fetch(
-    'https://api.thingspeak.com/channels/2531448/feeds.json?api_key=UFR2I5V9Z9KMQ10X&results=10',
+    'https://api.thingspeak.com/channels/2546201/feeds.json?api_key=GYG6S0D1CDZ8L1TX&results=10',
     {
       cache: 'no-store',
     }
@@ -24,7 +24,7 @@ const getSoilMoisture = async () => {
   return res.json();
 };
 
-function sortData(apiData: WeighingRainGaugeData) {
+export function sortData(apiData: WeighingRainGaugeData) {
   const data = apiData.feeds.sort((a, b) => {
     const dateA = new Date(a.created_at).getTime();
     const dateB = new Date(b.created_at).getTime();
@@ -70,7 +70,7 @@ const SoilMoisturizer = async () => {
         <Rainfallmm rainfallMmData={data} />
         <RainfallIntensity rainfallIntensityData={data} />
         <RainfallWarning rainfallWarningData={data} />
-        <HistoryBtn historyData={data} />
+        <HistoryBtn />
       </main>
     </div>
   );

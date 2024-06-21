@@ -1,5 +1,7 @@
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { formatDateRecent } from '@/lib/utils';
+import { WeighingRainGaugeData } from '@/lib/types';
+import { sortData } from '@/app/rain-gauge/page';
 import {
   Table,
   TableBody,
@@ -24,7 +26,21 @@ import { checkIntensity } from '@/lib/utils';
 import { formatToTwoDecimalPlaces } from '@/lib/utils';
 
 
-const HistoryBtn = ({ historyData }: { historyData: Feed[] }) => {
+const getHistoryData = async () =>{
+  const res = await fetch('https://api.thingspeak.com/channels/2546201/feeds.json?api_key=GYG6S0D1CDZ8L1TX&results=', {cache : 'no-store'})
+
+  if(!res.ok){
+    throw new Error('Failed to fetch history data')
+  }
+
+  return res.json();
+}
+
+
+const HistoryBtn = async () => {
+  const apiData = await getHistoryData() as WeighingRainGaugeData;
+  const historyData = sortData(apiData);
+
   return (
     <div>
 

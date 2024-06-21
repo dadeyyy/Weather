@@ -7,7 +7,7 @@ import { formatToTwoDecimalPlaces } from '@/lib/utils';
 
 async function getRecentData() {
   const res = await fetch(
-    'https://api.thingspeak.com/channels/2531448/feeds/last.json?api_key=UFR2I5V9Z9KMQ10X',
+    'https://api.thingspeak.com/channels/2546201/feeds/last.json?api_key=GYG6S0D1CDZ8L1TX',
     { cache: 'no-store' }
   );
 
