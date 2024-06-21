@@ -30,7 +30,7 @@ const getHistoryData = async () =>{
   const res = await fetch('https://api.thingspeak.com/channels/2546201/feeds.json?api_key=GYG6S0D1CDZ8L1TX&results=', {cache : 'no-store'})
 
   if(!res.ok){
-    throw new Error('Failed to fetch history data')
+    throw new Error('Failed to fetch history dataa')
   }
 
   return res.json();
