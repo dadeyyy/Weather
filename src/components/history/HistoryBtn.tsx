@@ -1,7 +1,7 @@
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { formatDateRecent } from '@/lib/utils';
 import { WeighingRainGaugeData } from '@/lib/types';
-import { sortData } from '@/app/rain-gauge/page';
+import { sortData } from '@/lib/utils';
 import {
   Table,
   TableBody,

@@ -8,6 +8,7 @@ import CircularProgress from '@/components/soil/circular-progress';
 import { WeighingRainGaugeData } from '@/lib/types';
 import { formatDateRecent } from '@/lib/utils';
 import Link from 'next/link';
+import { sortData } from '@/lib/utils';
 
 const getSoilMoisture = async () => {
   const res = await fetch(
@@ -24,15 +25,7 @@ const getSoilMoisture = async () => {
   return res.json();
 };
 
-export function sortData(apiData: WeighingRainGaugeData) {
-  const data = apiData.feeds.sort((a, b) => {
-    const dateA = new Date(a.created_at).getTime();
-    const dateB = new Date(b.created_at).getTime();
-    return dateB - dateA;
-  });
 
-  return data;
-}
 
 const SoilMoisturizer = async () => {
   const apiData = (await getSoilMoisture()) as WeighingRainGaugeData;

@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { parseISO } from 'date-fns';
 import { toZonedTime, format as formatTZ } from 'date-fns-tz';
+import { WeighingRainGaugeData } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -171,4 +172,14 @@ export function checkZero (value: string){
     return true
   }
   return false
+}
+
+export function sortData(apiData: WeighingRainGaugeData) {
+  const data = apiData.feeds.sort((a, b) => {
+    const dateA = new Date(a.created_at).getTime();
+    const dateB = new Date(b.created_at).getTime();
+    return dateB - dateA;
+  });
+
+  return data;
 }
